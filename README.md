@@ -1,14 +1,9 @@
-# Multivendor Network Backup Config (MVNBC)
+MVNBC (Multivendor Network Backup Config) is a Bash-based CLI tool for automating configuration backups across multi-vendor network devices like routers and switches.
 
-A Bash-based CLI tool designed to automate configuration backups for multi-vendor network devices, including routers and switches
+Setup Requirements:
 
-Requirements (install once)
+    Install sshpass: sudo apt install sshpass -y
+    Make the script executable: chmod +x MVNBC.sh
+    Run the script: ./MVNBC.sh
 
-1) Install SSH Pass
-**" sudo apt install sshpass -y "**
-
-2) change script file permission and Make it executable
-**" chmod +x MVNBC.sh "**
-
-3) Run bash file
-**" ./MVNBC.sh "**
+The repository is written entirely in Shell/Bash and appears to be a straightforward automation utility for network device management.
