@@ -1,0 +1,108 @@
+#!/usr/bin/expect
+
+set timeout 40
+
+set ip [lindex $argv 0]
+set user [lindex $argv 1]
+set pass [lindex $argv 2]
+set enable [lindex $argv 3]
+
+spawn ssh \
+-o StrictHostKeyChecking=no \
+-o KexAlgorithms=+diffie-hellman-group1-sha1 \
+-o HostKeyAlgorithms=+ssh-rsa \
+-o Ciphers=aes128-cbc,3des-cbc \
+$user@$ip
+
+expect {
+    "*yes/no*" { send "yes\r"; exp_continue }
+    "*assword:" { send "$pass\r" }
+}
+
+expect {
+    ">" {}
+    "#" {}
+    timeout { exit 1 }
+}
+
+send "enable\r"
+expect "*assword:" { send "$enable\r" }
+expect "#"
+
+send "terminal length 0\r"
+expect "#"
+
+send "show inventory\r"
+expect "#"
+
+send "show running-config\r"
+expect "#"
+
+send "show ip interface brief\r"
+expect "#"
+
+send "show interface description\r"
+expect "#"
+
+send "show interface status\r"
+expect "#"
+
+send "show ip arp\r"
+expect "#"
+
+send "show mac address-table\r"
+expect "#"
+
+send "show cdp neighbors\r"
+expect "#"
+
+send "show ip route\r"
+expect "#"
+
+send "show vrrp\r"
+expect "#"
+
+send "show vrrp brief\r"
+expect "#"
+
+send "show etherchannel summary\r"
+expect "#"
+
+send "show track\r"
+expect "#"
+
+send "show ip sla summary\r"
+expect "#"
+
+send "show spanning-tree\r"
+expect "#"
+
+send "show environment all\r"
+expect "#"
+
+send "show boot\r"
+expect "#"
+
+send "dir flash:\r"
+expect "#"
+
+send "show vlan\r"
+expect "#"
+
+send "show version\r"
+expect "#"
+
+send "show int transceiver\r"
+expect "#"
+
+send "show int\r"
+expect "#"
+
+send "show logging\r"
+expect "#"
+
+send "show clock\r"
+expect "#"
+
+send "exit\r"
+expect eof

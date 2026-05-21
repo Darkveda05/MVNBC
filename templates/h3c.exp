@@ -1,0 +1,78 @@
+#!/usr/bin/expect
+
+set timeout 40
+
+set ip [lindex $argv 0]
+set user [lindex $argv 1]
+set pass [lindex $argv 2]
+set enable [lindex $argv 3]
+
+spawn ssh \
+-o StrictHostKeyChecking=no \
+-o KexAlgorithms=+diffie-hellman-group1-sha1 \
+-o HostKeyAlgorithms=+ssh-rsa \
+-o Ciphers=aes128-cbc,3des-cbc \
+$user@$ip
+
+expect {
+    "*yes/no*" { send "yes\r"; exp_continue }
+    "*assword:" { send "$pass\r" }
+}
+
+expect {
+    ">" {}
+    "#" {}
+    timeout { exit 1 }
+}
+
+send "sys-view\r"
+expect "*assword:" { send "$enable\r" }
+expect "#"
+
+send "screen-length disable\r"
+expect "#"
+
+send "dis device man\r"
+expect "#"
+
+send "dis cu\r"
+expect "#"
+
+send "dis ip interface brief\r"
+expect "#"
+
+send "dis interface brief\r"
+expect "#"
+
+send "dis arp\r"
+expect "#"
+
+send "dis mac-address\r"
+expect "#"
+
+send "dis lldp neighbor\r"
+expect "#"
+
+send "dis ip routing-table\r"
+expect "#"
+
+send "dis link-aggregation verbose\r"
+expect "#"
+
+send "dis spanning-tree\r"
+expect "#"
+
+send "dis vlan\r"
+expect "#"
+
+send "dis version\r"
+expect "#"
+
+send "dis logbuffer reverse\r"
+expect "#"
+
+send "dis clock\r"
+expect "#"
+
+send "exit\r"
+expect eof

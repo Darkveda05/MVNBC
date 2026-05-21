@@ -1,0 +1,35 @@
+#!/usr/bin/expect -f
+
+set IP   [lindex $argv 0]
+set USER [lindex $argv 1]
+set PASS [lindex $argv 2]
+
+set timeout 60
+
+spawn ssh -4 -o StrictHostKeyChecking=no $USER@$IP
+
+expect {
+    "*yes/no*" { send "yes\r"; exp_continue }
+    "*assword:*" { send "$PASS\r" }
+    timeout { exit 1 }
+}
+
+expect {
+    ">" {}
+    "#" {}
+    timeout { exit 1 }
+}
+
+send "/terminal pager set disabled=yes\r"
+expect ">" {}
+
+send "/export show-sensitive\r"
+
+expect {
+    ">" {}
+    "#" {}
+    timeout { exit 1 }
+}
+
+send "/quit\r"
+expect eof
