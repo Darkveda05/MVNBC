@@ -33,18 +33,22 @@ echo "======================================"
 echo ""
 
 echo "1. Cisco"
-echo "2. Arista"
-echo "3. Mikrotik"
-echo "4. H3c"
+echo "2. Cisco ASA"
+echo "3. Arista"
+echo "4. Mikrotik"
+echo "5. H3C"
+echo "6. Aruba CX"
 echo ""
 
 read -p "Please choose vendor: " CHOICE
 
 case "$CHOICE" in
     1) VENDOR="cisco" ;;
-    2) VENDOR="arista" ;;
-    3) VENDOR="mikrotik" ;;
-    4) VENDOR="h3c" ;;
+    2) VENDOR="ciscoasa" ;;
+	3) VENDOR="arista" ;;
+    4) VENDOR="mikrotik" ;;
+    5) VENDOR="h3c" ;;
+	6) VENDOR="arubacx" ;;
     *)
         echo "❌ Invalid selection"
         exit 1
