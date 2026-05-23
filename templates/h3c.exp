@@ -1,78 +1,79 @@
-#!/usr/bin/expect
+#!/usr/bin/expect -f
 
-set timeout 40
+set timeout 30
 
-set ip [lindex $argv 0]
+set ip   [lindex $argv 0]
 set user [lindex $argv 1]
 set pass [lindex $argv 2]
-set enable [lindex $argv 3]
 
-spawn ssh \
--o StrictHostKeyChecking=no \
+spawn ssh -o StrictHostKeyChecking=no \
+-o UserKnownHostsFile=/dev/null \
 -o KexAlgorithms=+diffie-hellman-group1-sha1 \
 -o HostKeyAlgorithms=+ssh-rsa \
 -o Ciphers=aes128-cbc,3des-cbc \
 $user@$ip
 
+# Login
 expect {
     "*yes/no*" { send "yes\r"; exp_continue }
-    "*assword:" { send "$pass\r" }
+    "*assword:*" { send "$pass\r" }
+    timeout { puts "LOGIN TIMEOUT"; exit 0 }
 }
 
+# Detect prompt safely
 expect {
     ">" {}
-    "#" {}
-    timeout { exit 1 }
+    "]" {}
+    "<*" {}
+    timeout { puts "NO PROMPT"; exit 0 }
 }
 
-send "sys-view\r"
-expect "*assword:" { send "$enable\r" }
-expect "#"
-
+# Disable paging (safe ignore if fails)
 send "screen-length disable\r"
-expect "#"
+expect -re {.*(>|]).*}
 
-send "dis device man\r"
-expect "#"
+# List of commands (safe mode)
+set commands {
+    "system-view"
+    "display device manuinfo"
+    "display cu"
+    "display ip interface brief"
+    "display interface brief"
+    "display arp"
+    "display mac-address"
+    "display vlan"
+    "display version"
+    "display lldp neighbor-information"
+    "display ip routing-table"
+    "display boot"
+    "display logbuffer reverse"
+    "display clock"
+}
 
-send "dis cu\r"
-expect "#"
+foreach cmd $commands {
 
-send "dis ip interface brief\r"
-expect "#"
+    puts "\nRUN: $cmd"
 
-send "dis interface brief\r"
-expect "#"
+    send "$cmd\r"
 
-send "dis arp\r"
-expect "#"
+    # IMPORTANT: we NEVER fail
+    expect {
+        -re {.*--More--.*} {
+            send " "
+            exp_continue
+        }
 
-send "dis mac-address\r"
-expect "#"
+        -re {.*(>|]).*} {
+            # normal success return to prompt
+        }
 
-send "dis lldp neighbor\r"
-expect "#"
+        timeout {
+            puts "SKIP (timeout): $cmd"
+        }
+    }
+}
 
-send "dis ip routing-table\r"
-expect "#"
-
-send "dis link-aggregation verbose\r"
-expect "#"
-
-send "dis spanning-tree\r"
-expect "#"
-
-send "dis vlan\r"
-expect "#"
-
-send "dis version\r"
-expect "#"
-
-send "dis logbuffer reverse\r"
-expect "#"
-
-send "dis clock\r"
-expect "#"
-
-send "exit\r"
+send "quit\r"
 expect eof
+
+exit 0

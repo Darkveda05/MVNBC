@@ -1,4 +1,4 @@
-MVNBC (Multivendor Network Backup Config) is a Bash-based CLI tool for automating configuration backups across multi-vendor network devices like routers and switches.
+MVNBC (Multivendor Network Backup Config) is a Bash-based CLI tool for automating configuration backups across multi-vendor network devices like router/switch & firewall.
 
 Setup Requirements:
 
