@@ -7,3 +7,5 @@ Setup Requirements:
     Run the script: ./MVNBC.sh
 
 The repository is written entirely in Shell/Bash and appears to be a straightforward automation utility for network device management.
+
+![Error screnshot.](https://github.com/Darkveda05/MVNBC/blob/main/Ouput.jpg) 
