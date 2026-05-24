@@ -2,9 +2,9 @@ MVNBC (Multivendor Network Backup Config) is a Bash-based CLI tool for automatin
 
 Setup Requirements:
 
-    Install sshpass: sudo apt install sshpass -y
-    Make the script executable: chmod +x MVNBC.sh
-    Run the script: ./MVNBC.sh
+    sudo apt install sshpass -y
+    chmod +x MVNBC.sh
+    ./MVNBC.sh
 
 The repository is written entirely in Shell/Bash and appears to be a straightforward automation utility for network device management.
 
