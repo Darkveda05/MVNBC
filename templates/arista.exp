@@ -11,7 +11,7 @@ spawn ssh \
 -o StrictHostKeyChecking=no \
 -o KexAlgorithms=+diffie-hellman-group1-sha1 \
 -o HostKeyAlgorithms=+ssh-rsa \
--o Ciphers=aes128-cbc,3des-cbc \
+-o Ciphers=aes256-ctr,aes192-ctr,aes128-ctr \
 $user@$ip
 
 expect {

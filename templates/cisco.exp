@@ -29,79 +29,7 @@ send "enable\r"
 expect "*assword:" { send "$enable\r" }
 expect "#"
 
-send "terminal length 0\r"
-expect "#"
-
-send "show inventory\r"
-expect "#"
-
 send "show running-config\r"
-expect "#"
-
-send "show ip interface brief\r"
-expect "#"
-
-send "show interface description\r"
-expect "#"
-
-send "show interface status\r"
-expect "#"
-
-send "show ip arp\r"
-expect "#"
-
-send "show mac address-table\r"
-expect "#"
-
-send "show cdp neighbors\r"
-expect "#"
-
-send "show ip route\r"
-expect "#"
-
-send "show vrrp\r"
-expect "#"
-
-send "show vrrp brief\r"
-expect "#"
-
-send "show etherchannel summary\r"
-expect "#"
-
-send "show track\r"
-expect "#"
-
-send "show ip sla summary\r"
-expect "#"
-
-send "show spanning-tree\r"
-expect "#"
-
-send "show environment all\r"
-expect "#"
-
-send "show boot\r"
-expect "#"
-
-send "dir flash:\r"
-expect "#"
-
-send "show vlan\r"
-expect "#"
-
-send "show version\r"
-expect "#"
-
-send "show int transceiver\r"
-expect "#"
-
-send "show int\r"
-expect "#"
-
-send "show logging\r"
-expect "#"
-
-send "show clock\r"
 expect "#"
 
 send "exit\r"

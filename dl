@@ -1,0 +1,86 @@
+[33mcommit 23b62c8ea830c1060ce0fcabc6e742290bb2799f[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m)[m
+Author: Darkveda <moyusof05@gmail.com>
+Date:   Sun May 24 17:47:20 2026 +0800
+
+    Fix formatting of setup instructions in README
+    
+    Updated setup instructions for executing the script.
+
+[33mcommit ad23dda5ba8003f4945f6820aa84d861624370df[m
+Author: Darkveda <moyusof05@gmail.com>
+Date:   Sun May 24 01:06:32 2026 +0800
+
+    Update README with error screenshot
+    
+    Add an error screenshot to the README.
+
+[33mcommit a9bc44d9a39537fb72ef548c1048047c7822af1a[m
+Author: yusof <moyusof05@gmail.com>
+Date:   Sun May 24 00:06:22 2026 +0800
+
+    update bash
+
+[33mcommit 2768cab66560b4887e56df90761cd84e01eff189[m
+Author: yusof <moyusof05@gmail.com>
+Date:   Sun May 24 00:01:52 2026 +0800
+
+    udpate template
+
+[33mcommit cc0e50c2a933381621e6c7a0abd265b0f912d5be[m
+Merge: e7ecc7a e63fdb4
+Author: Darkveda <moyusof05@gmail.com>
+Date:   Thu May 21 15:30:00 2026 +0800
+
+    update file
+
+[33mcommit e7ecc7a64be8c9b1f525ff331fb806a430631a86[m
+Author: Darkveda <moyusof05@gmail.com>
+Date:   Thu May 21 15:21:01 2026 +0800
+
+    update readme
+
+[33mcommit e63fdb43b7eb58fc30985ba4bc481d1dd0db7af1[m
+Author: Darkveda <moyusof05@gmail.com>
+Date:   Thu May 21 15:10:04 2026 +0800
+
+    Revise README for MVNBC tool description and setup
+    
+    Updated README to clarify tool description and setup instructions.
+
+[33mcommit fe3f2e7f24f65f49e46181d39ceab86339619d44[m
+Author: Darkveda <moyusof05@gmail.com>
+Date:   Thu May 21 15:09:03 2026 +0800
+
+    Format commands in README.md for better visibility
+
+[33mcommit 93091c9f13d77197d361a98a12a7572f57f37727[m
+Author: Darkveda <moyusof05@gmail.com>
+Date:   Thu May 21 11:51:03 2026 +0800
+
+    update readme
+    
+    Added a brief description of the tool's purpose.
+
+[33mcommit da634ad131876ee9f3ae9e17e6500de91fec12bc[m
+Author: Darkveda <moyusof05@gmail.com>
+Date:   Thu May 21 11:45:33 2026 +0800
+
+    Add photo
+
+[33mcommit 975cd81d2c5f7c492185d9a4579c655456ab511a[m
+Author: Darkveda <moyusof05@gmail.com>
+Date:   Thu May 21 11:37:41 2026 +0800
+
+    Add new files
+
+[33mcommit 18cc221793e92d165bf20feb466672971e9bc61e[m
+Author: Darkveda <moyusof05@gmail.com>
+Date:   Thu May 21 11:35:39 2026 +0800
+
+    Update Readme
+
+[33mcommit 9dfbe9eae4a0f861dde296dc49a284d1900840a4[m
+Author: Darkveda <moyusof05@gmail.com>
+Date:   Thu May 21 11:13:25 2026 +0800
+
+    Initial commit
