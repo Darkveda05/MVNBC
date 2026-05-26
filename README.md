@@ -2,6 +2,15 @@
 
 MVNBC is a Bash-based CLI tool for automating configuration backups across multi-vendor for network devices.
 
+Current working products:
+1) cisco
+2) cisco ASA
+3) H3C
+4) Arista
+5) Aruba CX
+6) Mikrotik
+
+
 Requirements:
 1) Linux (Ubuntu/debian/casaos)
 2) git
